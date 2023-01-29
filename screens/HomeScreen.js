@@ -14,6 +14,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -64,6 +65,22 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
         {/* Featured Rows */}
+
+        <FeaturedRow
+          id="1"
+          title="Featured"
+          description="Paid placements from our partners"
+        />
+        <FeaturedRow
+          id="2"
+          title="Tasty Discounts"
+          description="Everyone's has been enjoying these juicy discounts!"
+        />
+        <FeaturedRow
+          id="3"
+          title="Offers near you"
+          description="Why not support your local restaurant tonight"
+        />
       </ScrollView>
     </SafeAreaView>
   );
