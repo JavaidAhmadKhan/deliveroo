@@ -43,7 +43,6 @@ const FeaturedRow = ({ id, title, description }) => {
         className="pt-4"
       >
         {/* Resturant Cards */}
-
         {restaurants.map((restaurant) => (
           <ResturantCard
             key={restaurant.id}

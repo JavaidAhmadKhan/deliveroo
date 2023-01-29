@@ -3,6 +3,7 @@ import CategoryCard from "./CategoryCard";
 import { useEffect, useState } from "react";
 import sanityClient from "../sanity";
 import { urlFor } from "../sanity";
+
 const Categories = () => {
   const [categories, setCategories] = useState([]);
 
@@ -34,13 +35,6 @@ const Categories = () => {
           title={category.name}
         />
       ))}
-      {/* <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing" /> */}
     </ScrollView>
   );
 };
