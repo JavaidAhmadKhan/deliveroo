@@ -46,13 +46,12 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView
-      className="bg-white"
+      className="bg-white "
       style={{
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        marginTop: 50,
       }}
     >
-      <View className="flex-row pb-3 items-center mx-4 space-x-2">
+      <View className="flex-row pb-3 items-center mx-4 space-x-2 pt-2">
         <Image
           className="w-7 h-7 bg-gray-300 p-4 rounded-full"
           source={{
