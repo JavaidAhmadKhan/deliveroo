@@ -13,13 +13,18 @@ import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
-import { removeFromBasket, selectBasketItems } from "../features/basketSlice";
+import {
+  removeFromBasket,
+  selectBasketItems,
+  selectBasketTotal,
+} from "../features/basketSlice";
 import { urlFor } from "../sanity";
 
 const BasketScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
+  const basketTotal = useSelector(selectBasketTotal);
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
 
@@ -70,7 +75,7 @@ const BasketScreen = () => {
               key={key}
               className="flex-row items-center space-x-3 bg-white py-2 px-5"
             >
-              <Text className='text-[#00CCBB]'>{items.length} x</Text>
+              <Text className="text-[#00CCBB]">{items.length} x</Text>
               <Image
                 source={{ uri: urlFor(items[0]?.image).url() }}
                 className="h-12 w-12 rounded-full"
@@ -90,6 +95,31 @@ const BasketScreen = () => {
             </View>
           ))}
         </ScrollView>
+        <View className="p-5 bg-white mt-5 space-y-4">
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Subtotal</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={basketTotal} currency="INR" />
+            </Text>
+          </View>
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Delivery Charges</Text>
+            <Text className="text-gray-400">
+              <Currency quantity={49} currency="INR" />
+            </Text>
+          </View>
+          <View className="flex-row justify-between">
+            <Text>Order Total</Text>
+            <Text className="font-extrabold">
+              <Currency quantity={basketTotal + 49} currency="INR" />
+            </Text>
+          </View>
+          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+            <Text className="text-center text-white text-lg font-bold">
+              Place Order
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
